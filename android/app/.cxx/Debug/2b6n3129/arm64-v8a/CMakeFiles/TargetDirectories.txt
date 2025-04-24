@@ -1,0 +1,2 @@
+D:/Cv_Flutter_project/app_6_hti_unibrtsity/hti_univerity/android/app/.cxx/Debug/2b6n3129/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/Cv_Flutter_project/app_6_hti_unibrtsity/hti_univerity/android/app/.cxx/Debug/2b6n3129/arm64-v8a/CMakeFiles/rebuild_cache.dir
