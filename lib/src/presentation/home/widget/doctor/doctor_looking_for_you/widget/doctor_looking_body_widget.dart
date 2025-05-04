@@ -40,6 +40,11 @@ class DoctorLookingBodyWidget extends StatelessWidget {
             onTap: ()=> _navigateToAssignmentDoctor(context, CourseEntity()),
             text: context.localizations.assignments,
           ),
+          verticalSpace(30),
+          ItemUserOptionsWidget(
+            onTap: ()=> _navigateToQuizDoctor(context, CourseEntity()),
+            text:"Quizzes",
+          ),
           verticalSpace(16),
         ],
       ),
@@ -52,5 +57,8 @@ class DoctorLookingBodyWidget extends StatelessWidget {
   }
   void _navigateToAssignmentDoctor(BuildContext context, CourseEntity course) {
     Navigator.pushNamed(context, PageRouteName.doctorAssignment);
+  }
+  void _navigateToQuizDoctor(BuildContext context, CourseEntity course) {
+    Navigator.pushNamed(context, PageRouteName.doctorQuiz);
   }
 }

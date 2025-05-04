@@ -4,8 +4,10 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/attendance_week_details_entity.dart';
 import '../../domain/entities/course_doctor_entity.dart';
+import '../../domain/entities/doctor_notification_submission_entity.dart';
 import '../model/response/attendance_week_details_response/attendance_week_details_response.dart';
 import '../model/response/attendance_week_doctor_response/attendance_week_doctor_response.dart';
+import '../model/response/doctor_assignment_sumbit_response_model/doctor_assignment_sumbit_response_model.dart';
 
 abstract class DoctorMapper {
   List<CourseDoctorEntity> mapDoctorHomeResponseToCourseDoctorEntity(
@@ -20,6 +22,10 @@ abstract class DoctorMapper {
       mapAttendanceWeekDetailsResponseToAttendanceWeekDetailsEntity(
           {required List<AttendanceWeekDetailsResponse>
               attendanceWeekDoctorResponse});
+  List<DoctorNotificationSubmissionEntity>
+      mapDoctorNotificationSubmissionResponseToDoctorNotificationSubmissionEntity(
+          {required List<DoctorAssignmentSumbitResponseModel>
+              doctorNotificationSubmissionResponse});
 }
 
 @Injectable(as: DoctorMapper)
@@ -63,6 +69,24 @@ class DoctorMapperImpl implements DoctorMapper {
               studentName: attendanceWeekDoctorResponse.studentName ?? " ",
               studentUniversityId:
                   attendanceWeekDoctorResponse.studentUniversityId ?? " ",
+            ))
+        .toList();
+  }
+
+  @override
+  List<DoctorNotificationSubmissionEntity>
+      mapDoctorNotificationSubmissionResponseToDoctorNotificationSubmissionEntity(
+          {required List<DoctorAssignmentSumbitResponseModel>
+              doctorNotificationSubmissionResponse}) {
+    if (doctorNotificationSubmissionResponse.isEmpty) return [];
+    return doctorNotificationSubmissionResponse
+        .map((doctorNotificationSubmissionResponse) =>
+            DoctorNotificationSubmissionEntity(
+              doctorId: doctorNotificationSubmissionResponse.id.toString(),
+              fileUrl: doctorNotificationSubmissionResponse.fileDownloadUrl ?? "",
+              message: doctorNotificationSubmissionResponse.message ?? "",
+              createdAt: doctorNotificationSubmissionResponse.createdAt ?? "",
+              title: doctorNotificationSubmissionResponse.title ?? "",
             ))
         .toList();
   }

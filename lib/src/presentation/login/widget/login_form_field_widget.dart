@@ -44,7 +44,7 @@ class LoginFormFieldWidget extends StatelessWidget {
               height: 20.h,
               width: 343,
               controller: loginViewModel.passwordController,
-              validator: (value) => Validations.validatePassword(value),
+              //validator: (value) => Validations.validatePassword(value),
               suffixIcon: IconButton(
                   onPressed: () =>
                       loginViewModel.doAction(ChangePasswordVisibilityAction()),

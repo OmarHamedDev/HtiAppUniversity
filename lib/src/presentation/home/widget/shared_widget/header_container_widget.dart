@@ -3,18 +3,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HeaderContainerWidget extends StatelessWidget {
   final Widget child;
-  const HeaderContainerWidget({super.key, required this.child});
+  final EdgeInsets padding;
+  const HeaderContainerWidget({
+    this.padding = const EdgeInsets.only(
+      left: 20,
+      right: 20,
+      top: 20,
+      bottom: 20,
+    ),
+    super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
-        padding: EdgeInsets.only(
-          left: 20.w,
-          right: 20.w,
-          top: 20.h,
-          bottom: 20.h,
-        ),
+        padding: padding,
         decoration: ShapeDecoration(
           color: const Color(0xFFFFD1D1),
           shape: RoundedRectangleBorder(

@@ -8,7 +8,7 @@ part of 'student_home_response.dart';
 
 StudentHomeResponse _$StudentHomeResponseFromJson(Map<String, dynamic> json) =>
     StudentHomeResponse(
-      studentId: (json['studentId'] as num?)?.toInt(),
+      studentId: json['studentIdentifier'] as String?,
       name: json['name'] as String?,
       gpa: (json['gpa'] as num?)?.toDouble(),
       totalUnits: (json['totalUnits'] as num?)?.toInt(),
@@ -20,7 +20,7 @@ StudentHomeResponse _$StudentHomeResponseFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$StudentHomeResponseToJson(
         StudentHomeResponse instance) =>
     <String, dynamic>{
-      'studentId': instance.studentId,
+      'studentIdentifier': instance.studentId,
       'name': instance.name,
       'gpa': instance.gpa,
       'totalUnits': instance.totalUnits,

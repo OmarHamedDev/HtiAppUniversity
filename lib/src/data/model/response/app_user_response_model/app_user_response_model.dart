@@ -6,12 +6,24 @@ part 'app_user_response_model.g.dart';
 class AppUserResponseModel {
   @JsonKey(name: "token")
   final String? token;
-  @JsonKey(name: "user")
-  final User? user;
+  @JsonKey(name: "id")
+  final int? userId;
+  @JsonKey(name: "fullName")
+  final String? fullName;
+  @JsonKey(name: "email")
+  final String? email;
+  @JsonKey(name: "role")
+  final String? role;
+  @JsonKey(name: "studentInfo")
+  final StudentInfo? studentInfo;
 
   AppUserResponseModel ({
     this.token,
-    this.user,
+    this.email,
+    this.userId,
+    this.fullName,
+    this.role,
+    this.studentInfo,
   });
 
   factory AppUserResponseModel.fromJson(Map<String, dynamic> json) {
@@ -24,29 +36,56 @@ class AppUserResponseModel {
 }
 
 @JsonSerializable()
-class User {
-  @JsonKey(name: "id")
-  final String? id;
+class StudentInfo {
+  @JsonKey(name: "studentIdentifier")
+  final String? studentIdentifier;
   @JsonKey(name: "name")
   final String? name;
-  @JsonKey(name: "email")
-  final String? email;
-  @JsonKey(name: "role")
-  final String? role;
+  @JsonKey(name: "gpa")
+  final int? gpa;
+  @JsonKey(name: "totalUnits")
+  final int? totalUnits;
+  @JsonKey(name: "courses")
+  final List<Courses>? courses;
 
-  User ({
-    this.id,
+  StudentInfo ({
+    this.studentIdentifier,
     this.name,
-    this.email,
-    this.role,
+    this.gpa,
+    this.totalUnits,
+    this.courses,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) {
-    return _$UserFromJson(json);
+  factory StudentInfo.fromJson(Map<String, dynamic> json) {
+    return _$StudentInfoFromJson(json);
   }
 
   Map<String, dynamic> toJson() {
-    return _$UserToJson(this);
+    return _$StudentInfoToJson(this);
+  }
+}
+
+@JsonSerializable()
+class Courses {
+  @JsonKey(name: "id")
+  final int? id;
+  @JsonKey(name: "name")
+  final String? name;
+  @JsonKey(name: "department")
+  final String? department;
+
+  Courses ({
+    this.id,
+    this.name,
+    this.department,
+  });
+
+  factory Courses.fromJson(Map<String, dynamic> json) {
+    return _$CoursesFromJson(json);
+  }
+
+  Map<String, dynamic> toJson() {
+    return _$CoursesToJson(this);
   }
 }
 

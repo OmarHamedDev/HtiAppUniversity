@@ -20,7 +20,8 @@ dependencies:
   #  retrofit.dart is an dio client generator using source_gen and inspired by Chopper and Retrofit.
   logger:
   #    Small, easy to use and extensible logger which prints beautiful log
-  json_annotation:
+  json_annotation: ^4.9.0
+
   #  Classes and helper functions that support JSON code generation via the `json_serializable` package
   bloc:
   #  Flutter Widgets that make it easy to implement the BLoC (Business Logic Component) design pattern. Built to be used with the bloc state management package.
@@ -52,16 +53,22 @@ dependencies:
   hive:
   #    Extension for Hive. Makes it easier to use Hive in Flutter apps
   hive_flutter:
-  flutter_onboarding_slider: ^1.0.11
+  #    A powerful and easy-to-use SQLite database for Flutter apps. It supports both iOS and Android platforms.
   smooth_page_indicator: ^1.2.0+3
+    #    A Flutter package for creating a smooth and customizable page indicator
   auto_size_text:
+    #    A Flutter widget that automatically resizes text to fit perfectly within its bounds
   provider: ^6.1.4
-
+    #    A Flutter package for creating a smooth and customizable page indicator
+  image_picker: ^1.1.2
+    #    A Flutter package for creating a smooth and customizable page indicator
+  file_picker:
 dev_dependencies:
 
   injectable_generator:
   build_runner:
   retrofit_generator:
+  hive_generator:
   json_serializable:
   flutter_test:
     sdk: flutter

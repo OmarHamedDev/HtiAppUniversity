@@ -32,11 +32,11 @@ class LoginCubit extends Cubit<LoginState> {
 
   TextEditingController emailController = TextEditingController
     (
-    text: "Nid@gmail.com"
+    text: "admin@gmail.com"
   );
   TextEditingController passwordController = TextEditingController
     (
-    text: "Nai#0100"
+    text: "12345"
   );
   GlobalKey<FormState>formKey=GlobalKey<FormState>();
 

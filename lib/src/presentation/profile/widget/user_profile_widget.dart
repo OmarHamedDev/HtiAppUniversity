@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hti_univerity/core/extension/extension.dart';
 import '../../../../core/styles/fonts/app_fonts.dart';
 import '../../widgets/icon_action_app_bar_widget.dart';
 
@@ -7,6 +8,7 @@ class UserProfileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appPageRouteProvider = context.appConfigProvider;
     return ListTile(
       contentPadding: EdgeInsets.zero,
       leading: IconActionAppBarWidget(
@@ -16,12 +18,12 @@ class UserProfileWidget extends StatelessWidget {
           padding: 0.0,
           icon: Icons.person_outline),
       title: Text(
-        'OmarHamedMakram',
+     appPageRouteProvider.appUserEntity?.name ?? '',
         textAlign: TextAlign.start,
         style: AppFonts.font12kGrayWeight600Inter,
       ),
       subtitle: Text(
-        'omar makram 421@gmail.com',
+        appPageRouteProvider.appUserEntity?.email ?? '',
         textAlign: TextAlign.start,
         style: AppFonts.font13kGrayWeight600Inter,
       ),

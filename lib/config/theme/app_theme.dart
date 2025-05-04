@@ -20,7 +20,7 @@ class AppTheme {
         color: Colors.black,
       size: 24.h,
       ),
+    ),
 
-    )
   );
 }

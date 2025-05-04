@@ -17,7 +17,7 @@ class AssignmentStudentCubit extends Cubit<AssignmentStudentState> {
 
   Future<void>doAction(AssignmentStudentAction assignmentStudentAction)async {
   switch (assignmentStudentAction) {
-    case GetAssignmentStudentAction(): return await _getAssignmentStudent(studentId: assignmentStudentAction.studentId, courseId: assignmentStudentAction.courseId);
+    case GetAssignmentStudentAction(): return await _getAssignmentStudent();
   }
   }
 
@@ -25,10 +25,9 @@ class AssignmentStudentCubit extends Cubit<AssignmentStudentState> {
   List<AssignmentEntity> _assignmentStudent = [];
   List<AssignmentEntity> get assignmentList => _assignmentStudent;
   Future<void> _getAssignmentStudent(
-      {required String studentId, required String courseId}) async {
+      ) async {
     emit(GetAssignmentStudentLoadingState());
-    var result = await _getAssignmentForStudentUseCase.invoke(
-        studentId: studentId, courseId: courseId);
+    var result = await _getAssignmentForStudentUseCase.invoke();
     switch (result) {
       case Success<List<AssignmentEntity>>():
         _assignmentStudent = result.data ?? [];

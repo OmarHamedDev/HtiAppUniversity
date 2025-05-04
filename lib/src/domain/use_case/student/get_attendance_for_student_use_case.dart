@@ -8,7 +8,7 @@ class GetAttendanceForStudentUseCase {
   final StudentRepository _studentRepository;
   GetAttendanceForStudentUseCase(this._studentRepository);
   Future<Result<List<AttendancesEntity>>> invoke(
-  {required String studentId, required String courseId} ) async {
-    return await _studentRepository.getAttendanceStudent(studentId, courseId);
+  { required String courseId} ) async {
+    return await _studentRepository.getAttendanceStudent( courseId);
   }
 }

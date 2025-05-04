@@ -7,8 +7,8 @@ class  GetAssignmentForStudentUseCase {
   final StudentRepository _studentRepository;
   GetAssignmentForStudentUseCase(this._studentRepository);
   Future<Result<List<AssignmentEntity>>> invoke(
-  {required String studentId, required String courseId} ) async {
-    return await _studentRepository.getAssignmentStudent(studentId, courseId);
+    ) async {
+    return await _studentRepository.getAssignmentStudent();
   }
 
 }

@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hti_univerity/config/routes/page_route_name.dart';
 import 'package:hti_univerity/src/presentation/change_password/view/change_password_view.dart';
+import 'package:hti_univerity/src/presentation/create_event/view/create_event_view.dart';
 import 'package:hti_univerity/src/presentation/forget_password/view/forget_password_view.dart';
+import 'package:hti_univerity/src/presentation/home/widget/admin/notification_admin/view/notification_admin_view.dart';
 import 'package:hti_univerity/src/presentation/home/widget/doctor/doctor_looking_for_you/view/doctor_looking_for_you_view.dart';
-import 'package:hti_univerity/src/presentation/home/widget/doctor/home_doctor_assignment/view/home_doctor_assignment_view.dart';
+import 'package:hti_univerity/src/presentation/home/widget/doctor/doctor_quiz/view/doctor_quiz_view.dart';
 import 'package:hti_univerity/src/presentation/home/widget/student/student_quiz/view/quiz_student_view.dart';
 import 'package:hti_univerity/src/presentation/login/view/login_view.dart';
 import 'package:hti_univerity/src/presentation/onboarding/view/onboarding_view.dart';
 import '../../src/presentation/event/view/event_view.dart';
-import '../../src/presentation/home/widget/doctor/attendance_doctor/view/doctor_attendance_detials_view.dart';
-import '../../src/presentation/home/widget/doctor/attendance_doctor/view/doctor_attendance_view.dart';
-import '../../src/presentation/home/widget/notifications/view/notification_view.dart';
+import '../../src/presentation/home/widget/doctor/doctor_assignment/view/home_doctor_assignment_view.dart';
+import '../../src/presentation/home/widget/doctor/doctor_attendance_details/view/doctor_attendance_detials_view.dart';
+import '../../src/presentation/home/widget/doctor/doctor_attendance/view/doctor_attendance_view.dart';
+import '../../src/presentation/home/widget/doctor/notification_doctor/view/notification_doctor_view.dart';
 import '../../src/presentation/home/widget/student/student_assignment/view/student_assignment_view.dart';
 import '../../src/presentation/home/widget/student/student_attendance/view/student_attendance_view.dart';
 import '../../src/presentation/home/widget/student/student_looking_for_you/view/student_looking_for_you_view.dart';
+import '../../src/presentation/home/widget/student/student_notification/view/student_notification_view.dart';
 import '../../src/presentation/register/view/register_view.dart';
 import '../../src/presentation/reset_password/view/reset_password_view.dart';
 import '../../src/presentation/section/view/section_view.dart';
@@ -47,13 +51,18 @@ class AppRoutes {
       case PageRouteName.changePassword:
         return _handleMaterialPageRoute(
             widget: const ChangePasswordView(), settings: settings);
-
+      case PageRouteName.studentNotification:
+        return _handleMaterialPageRoute(
+            widget: const StudentNotificationView(), settings: settings);
       case PageRouteName.section:
         return _handleMaterialPageRoute(
             widget: const SectionView(), settings: settings);
       case PageRouteName.studentLookingForYou:
         return _handleMaterialPageRoute(
             widget: const StudentLookingForYou(), settings: settings);
+      case PageRouteName.doctorNotification:
+        return _handleMaterialPageRoute(
+            widget: const NotificationDoctorView(), settings: settings);
       case PageRouteName.doctorLookingForYou:
         return _handleMaterialPageRoute(
             widget: const DoctorLookingForYouView(), settings: settings);
@@ -68,7 +77,7 @@ class AppRoutes {
             widget: const DoctorAssignmentView(), settings: settings);
       case PageRouteName.notification:
         return _handleMaterialPageRoute(
-            widget: const NotificationView(), settings: settings);
+            widget: const NotificationAdminView(), settings: settings);
       case PageRouteName.studentAttendance:
         return _handleMaterialPageRoute(
             widget: const StudentAttendanceView(), settings: settings);
@@ -78,9 +87,18 @@ class AppRoutes {
       case PageRouteName.studentQuiz:
         return _handleMaterialPageRoute(
             widget: const QuizStudentView(), settings: settings);
+      case PageRouteName.doctorQuiz:
+        return _handleMaterialPageRoute(
+            widget: const DoctorQuizView(), settings: settings);
       case PageRouteName.event:
         return _handleMaterialPageRoute(
             widget: const EventView(), settings: settings);
+      case PageRouteName.eventPost:
+        return _handleMaterialPageRoute(
+            widget: const CreateEventView(), settings: settings);
+      case PageRouteName.adminNotification:
+        return _handleMaterialPageRoute(
+            widget: const NotificationAdminView(), settings: settings);
       default:
         return _handleMaterialPageRoute(
             widget: const OnboardingView(), settings: settings);

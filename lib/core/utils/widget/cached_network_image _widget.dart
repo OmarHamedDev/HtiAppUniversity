@@ -19,9 +19,14 @@ class CachedNetworkImageWidget extends StatelessWidget {
       height: height.h,
       width: width.w,
       imageUrl: imageUrl,
-      progressIndicatorBuilder: (context, url, downloadProgress) =>
-          Center(child: CircularProgressIndicator(value: downloadProgress.progress)),
-      errorWidget: (context, url, error) => const Icon(Icons.error),
+      placeholder: (context, url) => Center(
+        child: CircularProgressIndicator(),
+      ),
+      errorWidget: (context, url, error) => Icon(Icons.error),
+      imageBuilder: (context, imageProvider) => Image(
+        image: imageProvider,
+        fit: BoxFit.cover,
+      ),
     );
   }
 }

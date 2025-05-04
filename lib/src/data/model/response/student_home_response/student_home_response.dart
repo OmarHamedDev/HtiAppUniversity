@@ -4,8 +4,8 @@ part 'student_home_response.g.dart';
 
 @JsonSerializable()
 class StudentHomeResponse {
-  @JsonKey(name: "studentId")
-  final int? studentId;
+  @JsonKey(name: "studentIdentifier")
+  final String? studentId;
   @JsonKey(name: "name")
   final String? name;
   @JsonKey(name: "gpa")

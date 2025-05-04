@@ -19,7 +19,6 @@ class QuizStudentCubit extends Cubit<QuizStudentState> {
     switch (quizStudentAction) {
       case GetQuizStudentAction():
         return await _getQuizStudent(
-            studentId: quizStudentAction.studentId,
             courseId: quizStudentAction.courseId);
     }
   }
@@ -27,10 +26,10 @@ class QuizStudentCubit extends Cubit<QuizStudentState> {
   List<QuizEntity> _quizStudentList = [];
   List<QuizEntity> get quizStudentList => _quizStudentList;
   Future<void> _getQuizStudent(
-      {required String studentId, required String courseId}) async {
+      {required String courseId}) async {
     emit(GetQuizStudentLoadingState());
     var result = await _getQuizForStudentUseCase.invoke(
-        studentId: studentId, courseId: courseId);
+     courseId: courseId);
     switch (result) {
       case Success<List<QuizEntity>>():
         _quizStudentList = result.data;

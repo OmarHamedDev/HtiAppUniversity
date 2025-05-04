@@ -54,4 +54,24 @@ abstract class Validations {
     }
     return null;
   }
+
+  static String ? validateTextIsEmpty(String? text) {
+    if (text == null || text.trim().isEmpty) {
+      return '⚠️ Text is required and cannot be empty.';
+    }
+    return null;
+  }
+  static String? validateTextIsOnlyNumbers(String? text) {
+    if (text == null || text.trim().isEmpty) {
+      return '⚠️ Number is required and cannot be empty.';
+    }
+
+    final RegExp numbersOnly = RegExp(r'^\d+$');
+
+    if (!numbersOnly.hasMatch(text)) {
+      return '⚠️ Only numbers are allowed.';
+    }
+
+    return null;
+  }
 }

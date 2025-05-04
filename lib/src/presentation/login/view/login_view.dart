@@ -1,6 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hti_univerity/core/extension/extension.dart';
 import 'package:hti_univerity/core/utils/dialogs/loading_dialog.dart';
 import 'package:hti_univerity/src/presentation/login/view_model/login_action.dart';
 import 'package:hti_univerity/src/presentation/login/view_model/login_cubit.dart';
@@ -61,7 +62,8 @@ class _LoginViewState extends State<LoginView> {
   void _goNextToForgetPasswordScreen(){
     Navigator.pushNamed(context,  PageRouteName.forgetPassword);
   }
-  void _goNextToBaseScreen(){
+  void _goNextToBaseScreen()async{
+    await context.appConfigProvider.initializeAppConfig();
     Navigator.pushNamed(context, PageRouteName.section);
   }
 }

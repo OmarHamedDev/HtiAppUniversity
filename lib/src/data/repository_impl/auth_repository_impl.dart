@@ -26,7 +26,7 @@ class AuthRepositoryImpl implements AuthRepository {
         var result = await _authRemoteDataSource.login(loginRequest);
         _authOfflineDataSource.saveToken(token: result.$2);
         _authOfflineDataSource.saveRole(role: result.$1.role);
-
+        _authOfflineDataSource.saveAppUser(appUserEntity: result.$1);
         return result.$1;
       },
     );
@@ -40,19 +40,22 @@ class AuthRepositoryImpl implements AuthRepository {
         var result = await _authRemoteDataSource.register(registerRequest);
         _authOfflineDataSource.saveToken(token: result.$2);
         _authOfflineDataSource.saveRole(role: result.$1.role);
+        _authOfflineDataSource.saveAppUser(appUserEntity: result.$1);
         return result.$1;
       },
     );
   }
 
   @override
-  Future<Result<bool>> changePassword({required ChangePasswordRequest changePasswordRequest}) {
+  Future<Result<bool>> changePassword(
+      {required ChangePasswordRequest changePasswordRequest}) {
     // TODO: implement changePassword
     throw UnimplementedError();
   }
 
   @override
-  Future<Result<SuccessAuthEntity>> forgetPassword({required ForgetPasswordRequest forgetPasswordRequest}) {
+  Future<Result<SuccessAuthEntity>> forgetPassword(
+      {required ForgetPasswordRequest forgetPasswordRequest}) {
     // TODO: implement forgetPassword
     throw UnimplementedError();
   }
@@ -64,13 +67,15 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Result<SuccessAuthEntity>> resetPassword({required ResetPasswordRequest resetPasswordRequest}) {
+  Future<Result<SuccessAuthEntity>> resetPassword(
+      {required ResetPasswordRequest resetPasswordRequest}) {
     // TODO: implement resetPassword
     throw UnimplementedError();
   }
 
   @override
-  Future<Result<SuccessAuthEntity>> verifyResetCode({required VerifyResetCodeRequest verifyRestCode}) {
+  Future<Result<SuccessAuthEntity>> verifyResetCode(
+      {required VerifyResetCodeRequest verifyRestCode}) {
     // TODO: implement verifyResetCode
     throw UnimplementedError();
   }

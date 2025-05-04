@@ -1,5 +1,5 @@
 class DataHomeEntity {
-  final num? studentId ;
+  final String? studentId ;
   final String? name;
   final num? gpa;
  final num? totalUnits;

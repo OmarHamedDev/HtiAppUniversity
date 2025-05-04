@@ -2,6 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../core/api/network/constants/api_constants.dart';
+import '../../../core/caching/cache_keys.dart';
+import '../../../core/caching/secure_storge/caching_Data.dart';
+import '../../../dependency_inversion/di.dart';
 
 @module
 abstract class DioProvider {
@@ -18,6 +21,7 @@ abstract class DioProvider {
       ),
     );
     dio.interceptors.add(providePretty());
+    dio.interceptors.add(AppInterceptors());
     return dio;
   }
 
@@ -38,16 +42,16 @@ abstract class DioProvider {
 
 
 
-// @lazySingleton
-// class AppInterceptors extends InterceptorsWrapper{
-//   @override
-//   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async{
-//     String ? token=await getIt.get<CachingDataSecureStorage>().readData(key:CacheKeys.token);
-//     print("token: $token" );
-//     if(token !=null){
-//      options.headers["token"] =token ;
-//    }
-//     super.onRequest(options, handler);
-//   }
+@lazySingleton
+class AppInterceptors extends InterceptorsWrapper{
+  @override
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async{
+   String ? token=await getIt.get<CachingDataSecureStorage>().readData(key:CacheKeys.token);
+    if(token !=null){
+     options.headers["Authorization"] = "Bearer $token";
+     print("token $token");
+   }
+    super.onRequest(options, handler);
+  }
 
-//}
+}

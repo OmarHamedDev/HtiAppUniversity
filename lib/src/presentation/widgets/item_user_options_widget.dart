@@ -17,7 +17,7 @@ class ItemUserOptionsWidget extends StatelessWidget {
         padding: EdgeInsets.only(left: 16.w),
         width: double.infinity,
         height: 64.h,
-        alignment: Alignment.centerLeft,
+        alignment: Alignment.center,
         decoration: ShapeDecoration(
           shape: RoundedRectangleBorder(
             side: BorderSide(

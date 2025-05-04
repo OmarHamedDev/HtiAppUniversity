@@ -2,6 +2,7 @@ import 'package:hti_univerity/core/api/network/common/result.dart';
 import 'package:hti_univerity/src/domain/entities/assignment_entity.dart';
 import 'package:hti_univerity/src/domain/entities/attendances_entity.dart';
 import 'package:hti_univerity/src/domain/entities/home_entity.dart';
+import 'package:hti_univerity/src/domain/entities/notification_entity.dart';
 import 'package:hti_univerity/src/domain/entities/quiz_entity.dart';
 import 'package:injectable/injectable.dart';
 
@@ -15,35 +16,31 @@ class StudentRepositoryImpl implements StudentRepository {
   StudentRepositoryImpl(this._studentRemoteDataSource);
   @override
   Future<Result<List<AttendancesEntity>>> getAttendanceStudent(
-      String studentId, String courseId) async {
+      String courseId) async {
     return executeMethod<List<AttendancesEntity>>(
       callMethod: () async {
-        var result = await _studentRemoteDataSource.getAttendanceStudent(
-            studentId, courseId);
+        var result =
+            await _studentRemoteDataSource.getAttendanceStudent(courseId);
         return result;
       },
     );
   }
 
   @override
-  Future<Result<List<AssignmentEntity>>> getAssignmentStudent(
-      String studentId, String courseId) {
+  Future<Result<List<AssignmentEntity>>> getAssignmentStudent() {
     return executeMethod<List<AssignmentEntity>>(
       callMethod: () async {
-        var result =
-            await _studentRemoteDataSource.getAssignmentStudent(studentId);
+        var result = await _studentRemoteDataSource.getAssignmentStudent();
         return result;
       },
     );
   }
 
   @override
-  Future<Result<List<QuizEntity>>> getQuizStudent(
-      String studentId, String courseId) {
+  Future<Result<List<QuizEntity>>> getQuizStudent(String courseId) {
     return executeMethod<List<QuizEntity>>(
       callMethod: () async {
-        var result =
-            await _studentRemoteDataSource.getQuizStudent(studentId, courseId);
+        var result = await _studentRemoteDataSource.getQuizStudent(courseId);
         return result;
       },
     );
@@ -55,6 +52,19 @@ class StudentRepositoryImpl implements StudentRepository {
       callMethod: () async {
         var result =
             await _studentRemoteDataSource.getHomeStudent(studentId: studentId);
+        return result;
+      },
+    );
+  }
+
+  @override
+  Future<Result<List<NotificationEntity>>> getNotificationStudent(
+      {required String studentId}) async {
+    return executeMethod<List<NotificationEntity>>(
+      callMethod: () async {
+        var result = await _studentRemoteDataSource.getNotificationStudent(
+          studentId: studentId,
+        );
         return result;
       },
     );

@@ -6,22 +6,24 @@ import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 import '../../profile/view/profile_view.dart';
+import '../../registration/view/registration_view.dart';
 
 part 'section_state.dart';
+
 @injectable
 class SectionCubit extends Cubit<SectionState> {
   SectionCubit() : super(SectionInitial());
 
-  List<Widget>bodyWidget=[
+  List<Widget> bodyWidget = [
     HomeView(),
     EventView(),
-    HomeView(),
+    RegistrationView(),
     ProfileView(),
   ];
-  int _currentIndex=0;
-  int get currentIndex=>_currentIndex;
-  void changeOnTabBottomSheet(int index){
-    _currentIndex=index;
+  int _currentIndex = 0;
+  int get currentIndex => _currentIndex;
+  void changeOnTabBottomSheet(int index) {
+    _currentIndex = index;
     emit(ChangeSectionState());
   }
 }

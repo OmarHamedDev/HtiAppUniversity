@@ -21,7 +21,6 @@ class AttendanceStudentCubit extends Cubit<AttendanceStudentState> {
     switch (homeStudentAttendanceAction) {
       case GetStudentAttendanceAction():
         return await _getAttendanceStudent(
-            studentId: homeStudentAttendanceAction.studentId,
             courseId: homeStudentAttendanceAction.courseId);
     }
   }
@@ -34,10 +33,10 @@ class AttendanceStudentCubit extends Cubit<AttendanceStudentState> {
   bool isSectionPresent(int index) =>
       _studentAttendance[index].section == "Present";
   Future<void> _getAttendanceStudent(
-      {required String studentId, required String courseId}) async {
+      { required String courseId}) async {
     emit(GetAttendanceStudentLoadingState());
     var result = await _getStudentAttendanceUseCase.invoke(
-        studentId: studentId, courseId: courseId);
+     courseId: courseId);
     switch (result) {
       case Success<List<AttendancesEntity>>():
         _studentAttendance = result.data ?? [];

@@ -9,7 +9,7 @@ class  GetQuizForStudentUseCase {
   final StudentRepository _studentRepository;
   GetQuizForStudentUseCase(this._studentRepository);
   Future<Result<List<QuizEntity>>> invoke(
-  {required String studentId, required String courseId} ) async {
-    return await _studentRepository.getQuizStudent(studentId, courseId);
+  { required String courseId} ) async {
+    return await _studentRepository.getQuizStudent( courseId);
   }
 }

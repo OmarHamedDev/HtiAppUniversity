@@ -3,7 +3,9 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/attendances_entity.dart';
 import '../../domain/entities/home_entity.dart';
+import '../../domain/entities/notification_entity.dart';
 import '../../domain/entities/quiz_entity.dart';
+import '../model/response/notification_response_model/get_all_notification_response_model.dart';
 import '../model/response/student_assignments_response/student_assignment_response.dart';
 import '../model/response/student_attendance_response/student_attendance_response.dart';
 import '../model/response/student_home_response/student_home_response.dart';
@@ -18,11 +20,13 @@ abstract class StudentMapper {
       {required List<StudentAssignmentResponse> studentAssignmentResponse});
   List<QuizEntity> mapStudentQuizResponseToQuizEntity(
       {required List<StudentQuizResponse> studentQuizResponse});
+  List<NotificationEntity> mapStudentNotificationResponseToNotificationEntity(
+      {required List<GetAllNotificationResponseModel>
+          studentNotificationResponse});
 }
 
 @Injectable(as: StudentMapper)
 class StudentMapperImpl implements StudentMapper {
-
   @override
   DataHomeEntity mapStudentHomeResponseToDataHomeEntity(
       {required StudentHomeResponse studentHomeResponse}) {
@@ -34,6 +38,7 @@ class StudentMapperImpl implements StudentMapper {
       totalUnits: studentHomeResponse.totalUnits,
     );
   }
+
   List<CourseEntity> _mapCoursesToCourseEntities(List<Courses>? courses) {
     if (courses == null || courses.isEmpty) return [];
     return courses.map((course) => _mapCourseToCourseEntity(course)).toList();
@@ -46,6 +51,7 @@ class StudentMapperImpl implements StudentMapper {
       department: course.department,
     );
   }
+
   @override
   List<AttendancesEntity> mapStudentAttendanceResponseToAttendancesEntity(
       {required List<StudentAttendanceResponse> studentAttendanceResponse}) {
@@ -85,6 +91,25 @@ class StudentMapperImpl implements StudentMapper {
               title: studentQuizResponse.title ?? "",
               quizDate: studentQuizResponse.quizDate ?? "",
               weekNumber: studentQuizResponse.weekNumber ?? "",
+            ))
+        .toList();
+  }
+
+  @override
+  List<NotificationEntity> mapStudentNotificationResponseToNotificationEntity(
+      {required List<GetAllNotificationResponseModel>
+          studentNotificationResponse}) {
+    if (studentNotificationResponse.isEmpty) return [];
+    return studentNotificationResponse
+        .map((notificationResponse) => NotificationEntity(
+              id: notificationResponse.id ?? 0,
+              createdAt: notificationResponse.createdAt ?? "",
+              title: notificationResponse.title ?? "",
+              message: notificationResponse.message ?? "",
+              fileUrl: notificationResponse.fileUrl ?? "",
+              isRead: notificationResponse.isRead ?? false,
+              applicationId: notificationResponse.applicationId ?? 0,
+              application: notificationResponse.application ?? "",
             ))
         .toList();
   }

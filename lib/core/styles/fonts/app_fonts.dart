@@ -48,6 +48,15 @@ class AppFonts{
   //   fontWeight: FontWeight.w500,
   // );
 
+  static TextStyle font10kBlackWeight400Inter=
+  TextStyle(
+    color: Colors.black,
+    fontSize: 10.sp,
+    fontFamily: _fontInter,
+    fontWeight: FontWeight.w400,
+    height: 1.60,
+  );
+
   static TextStyle font24kWhiteWeight500Inter=
   TextStyle(
     color: AppColors.kWhite,
