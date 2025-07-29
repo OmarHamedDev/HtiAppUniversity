@@ -1,16 +1,31 @@
-# hti_univerity
+# 📱 HTI University App
+A comprehensive mobile application for HTI University that provides an intuitive interface for students and faculty members to access various academic services. Developed using Flutter to ensure a seamless user experience across all device
+[Click here to watch the demo video Studnt ](https://drive.google.com/file/d/1h7UaZB-21wmz2CH6jEsLNDtZ9CGsj0cK/view?usp=sharing)
+[Click here to watch the demo video Doctor ](https://drive.google.com/file/d/1VMiGczKrEXPW7mBFk5LYyFHcl7T3jRIb/view?usp=drive_link)
+[Click here to watch the demo video Admin ](https://drive.google.com/file/d/1AwSvzMSq1IAUwaXq4WaAhbXfQCcNP_kL/view?usp=drive_link)
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🔐 User authentication (login & registration)  
+- 📅 View daily & weekly class schedules  
+- 📈 Track attendance and absences  
+- 📊 Access grades and semester results  
+- 📚 View course materials and lecture notes  
+- 💬 In-app messaging with faculty members  
+- 🔔 Notification system for important alerts  
+- 🗺️ Map-based navigation for classes and campus facilities  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
+## 🛠️ Technologies Used
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Category         | Tools / Frameworks                        |
+|------------------|--------------------------------------------|
+| **Language**     | Dart                                       |
+| **Framework**    | Flutter                                    |
+| **State Management** | BLoC                                  |
+| **Local Storage**| Hive, SharedPreferences                    |
+| **Maps API**     | OpenRouteService API                       |
+| **Architecture** | Clean Architecture                         |
+
