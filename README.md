@@ -23,19 +23,6 @@ A comprehensive mobile application for HTI University that provides an intuitive
 - 🗺️ Map-based navigation for classes and campus facilities  
 
 ---
-## 🛠️ Technologies Used
-## 🚀 Features
-
-- 🔐 User authentication (login & registration)  
-- 📅 View daily & weekly class schedules  
-- 📈 Track attendance and absences  
-- 📊 Access grades and semester results  
-- 📚 View course materials and lecture notes  
-- 💬 In-app messaging with faculty members  
-- 🔔 Notification system for important alerts  
-- 🗺️ Map-based navigation for classes and campus facilities  
-
----
 
 ## 🛠️ Technologies Used
 
